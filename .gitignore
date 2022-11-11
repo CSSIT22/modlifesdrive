@@ -1,0 +1,7 @@
+.env
+
+db/fileSystem.db
+
+files/*
+
+.idea/
