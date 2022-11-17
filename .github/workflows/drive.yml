@@ -51,5 +51,5 @@ jobs:
             docker pull ${{secrets.DOCKER_USERNAME}}/${{secrets.DOCKER_IMAGE}}:latest
             docker stop ${{secrets.CONTAINER_NAME}}
             docker rm ${{secrets.CONTAINER_NAME}}
-            docker run -d --name ${{secrets.CONTAINER_NAME}} --env-file ${{secrets.ENV_PATH}} --label-file ${{secrets.LABEL_PATH}} --network proxy ${{secrets.DOCKER_REGISTRY}}/${{secrets.DOCKER_IMAGE}}
+            docker run -d --name ${{secrets.CONTAINER_NAME}} --env-file ${{secrets.ENV_PATH}} --label-file ${{secrets.LABEL_PATH}} --network treafik ${{secrets.DOCKER_USERNAME}}/${{secrets.DOCKER_IMAGE}}
             docker system prune -af
