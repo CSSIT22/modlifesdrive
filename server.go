@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
+	"log"
+	"os"
+	"strings"
+
 	"github.com/CSSIT22/modlifesdrive/db"
 	"github.com/CSSIT22/modlifesdrive/routes"
 	"github.com/gofiber/fiber/v2"
 	"github.com/joho/godotenv"
-	"log"
-	"os"
-	"strings"
 )
 
 //type File {
@@ -28,7 +29,9 @@ func main() {
 		log.Fatal(err)
 	}
 
-	app := fiber.New()
+	app := fiber.New(fiber.Config{
+		BodyLimit: 100 * 1024 * 1,
+	})
 
 	app.Use(func(c *fiber.Ctx) error {
 		authorization := c.Get("Authorization")
