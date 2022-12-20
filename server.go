@@ -30,7 +30,7 @@ func main() {
 	}
 
 	app := fiber.New(fiber.Config{
-		BodyLimit: 100 * 1024 * 1,
+		BodyLimit: 100 * 1024 * 1024,
 	})
 
 	app.Use(func(c *fiber.Ctx) error {
